@@ -1,63 +1,37 @@
 <template>
-  <v-form ref="form" v-model="valid" lazy-validation>
-    <v-text-field
-      v-model="client.name"
-      :rules="nameRules"
-      label="Nombre"
-      required
-    ></v-text-field>
-    <v-text-field
-      v-model="client.surname"
-      :rules="surnameRules"
-      label="Apellido"
-      required
-    ></v-text-field>
-    <v-text-field
-      v-model="client.email"
-      :rules="emailRules"
-      label="Correo"
-      required
-    ></v-text-field>
-    <v-text-field
-      v-model="client.ruc"
-      :rules="rucRules"
-      label="RUC"
-      required
-    ></v-text-field>
-    <v-text-field
-      v-model="client.dni"
-      :rules="dniRules"
-      label="DNI"
-      required
-    ></v-text-field>
-    <v-text-field
-      v-model="client.cellphone"
-      :rules="cellphoneRules"
-      label="Celular"
-      required
-    ></v-text-field>
-    <v-text-field
-      v-model="client.address"
-      :rules="addressRules"
-      label="Dirección"
-      required
-    ></v-text-field>
-    <v-btn
-      :disabled="!valid"
-      color="success"
-      class="mr-4"
-      @click="submit"
-    >
-      Crear
-    </v-btn>
-    <v-btn color="error" @click="reset">Limpiar</v-btn>
-  </v-form>
+   <form @submit.prevent="handleSubmit">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" v-model="formData.name" required />
+
+        <label for="name">lastname:</label>
+        <input type="text" id="name" v-model="formData.surname" required />
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" v-model="formData.email" required />
+
+        <label for="ruc">RUC:</label>
+        <input type="ruc" id="ruc" v-model="formData.ruc" required />
+
+        <label for="dni">DNI:</label>
+        <input type="dni" id="dni" v-model="formData.dni" required />
+
+        <label for="cellphone">cellphone:</label>
+        <input type="cellphone" id="cellphone" v-model="formData.cellphone" required />
+
+        <label for="address">address:</label>
+        <input type="address" id="address" v-model="formData.address" required />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
 
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted } from 'vue';
-import ClientService from '@/services/client';
+import { ref } from 'vue';
+// import ClientService from '@/services/client';
+import axios from 'axios';
 import Client from '@/interface/Client';
 
 const client: Client = {
@@ -71,18 +45,27 @@ const client: Client = {
 }
 
 // Define a reactive variable to store the API data
-const apiData = ref([client]);
+const formData = ref({client});
+
+const handleSubmit = async () => {
+  try {
+    const response = await axios.post('127.0.0.1:8080/api/v1/clients/create', formData.value);
+    console.log('Data submitted successfully:', response.data);
+  } catch (error) {
+    console.error('Error submitting data:', error);
+  }
+};
 
 // Fetch data from the API when the component is mounted
-onMounted(async () => {
-  try {
-    // Make a GET request to the API
-    const response = await ClientService.create(apiData.value);
-
-    // Update the reactive variable with the fetched data
-    apiData.value = response.data;
-  } catch (error) {
-    console.error('Error fetching API data:', error);
-  }
-});
+// onMounted(async () => {
+//   try {
+//     // Make a GET request to the API
+//     const response = await ClientService.create(apiData.value);
+//
+//     // Update the reactive variable with the fetched data
+//     apiData.value = response.data;
+//   } catch (error) {
+//     console.error('Error fetching API data:', error);
+//   }
+// });
 </script>

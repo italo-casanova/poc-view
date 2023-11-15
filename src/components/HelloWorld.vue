@@ -1,75 +1,88 @@
 <template>
-  <v-container class="fill-height">
-    <v-responsive class="align-center text-center fill-height">
-      <v-img height="300" src="@/assets/logo.svg" />
+  <v-form ref="form" v-model="valid" lazy-validation>
+    <v-text-field
+      v-model="client.name"
+      :rules="nameRules"
+      label="Nombre"
+      required
+    ></v-text-field>
+    <v-text-field
+      v-model="client.surname"
+      :rules="surnameRules"
+      label="Apellido"
+      required
+    ></v-text-field>
+    <v-text-field
+      v-model="client.email"
+      :rules="emailRules"
+      label="Correo"
+      required
+    ></v-text-field>
+    <v-text-field
+      v-model="client.ruc"
+      :rules="rucRules"
+      label="RUC"
+      required
+    ></v-text-field>
+    <v-text-field
+      v-model="client.dni"
+      :rules="dniRules"
+      label="DNI"
+      required
+    ></v-text-field>
+    <v-text-field
+      v-model="client.cellphone"
+      :rules="cellphoneRules"
+      label="Celular"
+      required
+    ></v-text-field>
+    <v-text-field
+      v-model="client.address"
+      :rules="addressRules"
+      label="Dirección"
+      required
+    ></v-text-field>
+    <v-btn
+      :disabled="!valid"
+      color="success"
+      class="mr-4"
+      @click="submit"
+    >
+      Crear
+    </v-btn>
+    <v-btn color="error" @click="reset">Limpiar</v-btn>
+  </v-form>
 
-      <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
-
-      <h1 class="text-h2 font-weight-bold">Vuetify</h1>
-
-      <div class="py-14" />
-
-      <v-row class="d-flex align-center justify-center">
-        <v-col cols="auto">
-          <v-btn
-            href="https://vuetifyjs.com/components/all/"
-            min-width="164"
-            rel="noopener noreferrer"
-            target="_blank"
-            variant="text"
-          >
-            <v-icon
-              icon="mdi-view-dashboard"
-              size="large"
-              start
-            />
-
-            Components
-          </v-btn>
-        </v-col>
-
-        <v-col cols="auto">
-          <v-btn
-            color="primary"
-            href="https://vuetifyjs.com/introduction/why-vuetify/#feature-guides"
-            min-width="228"
-            rel="noopener noreferrer"
-            size="x-large"
-            target="_blank"
-            variant="flat"
-          >
-            <v-icon
-              icon="mdi-speedometer"
-              size="large"
-              start
-            />
-
-            Get Started
-          </v-btn>
-        </v-col>
-
-        <v-col cols="auto">
-          <v-btn
-            href="https://community.vuetifyjs.com/"
-            min-width="164"
-            rel="noopener noreferrer"
-            target="_blank"
-            variant="text"
-          >
-            <v-icon
-              icon="mdi-account-group"
-              size="large"
-              start
-            />
-
-            Community
-          </v-btn>
-        </v-col>
-      </v-row>
-    </v-responsive>
-  </v-container>
 </template>
 
 <script lang="ts" setup>
-  //
+import { ref, onMounted } from 'vue';
+import ClientService from '@/services/client';
+import Client from '@/interface/Client';
+
+const client: Client = {
+    name: "",
+    surname: "",
+    email: "",
+    ruc: "",
+    dni: "",
+    cellphone: "",
+    address: ""
+}
+
+// Define a reactive variable to store the API data
+const apiData = ref([client]);
+
+// Fetch data from the API when the component is mounted
+onMounted(async () => {
+  try {
+    // Make a GET request to the API
+    const response = await ClientService.create(apiData.value);
+
+    // Update the reactive variable with the fetched data
+    apiData.value = response.data;
+  } catch (error) {
+    console.error('Error fetching API data:', error);
+  }
+});
 </script>

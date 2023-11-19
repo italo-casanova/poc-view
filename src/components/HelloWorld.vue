@@ -45,27 +45,16 @@ const client: Client = {
 }
 
 // Define a reactive variable to store the API data
-const formData = ref({client});
+const formData = ref(client);
 
 const handleSubmit = async () => {
   try {
-    const response = await axios.post('127.0.0.1:8080/api/v1/clients/create', formData.value);
+    const response = await axios.post('http://127.0.0.1:3000/api/v1/clients/create', formData.value);
     console.log('Data submitted successfully:', response.data);
   } catch (error) {
     console.error('Error submitting data:', error);
   }
 };
 
-// Fetch data from the API when the component is mounted
-// onMounted(async () => {
-//   try {
-//     // Make a GET request to the API
-//     const response = await ClientService.create(apiData.value);
-//
-//     // Update the reactive variable with the fetched data
-//     apiData.value = response.data;
-//   } catch (error) {
-//     console.error('Error fetching API data:', error);
-//   }
-// });
+
 </script>

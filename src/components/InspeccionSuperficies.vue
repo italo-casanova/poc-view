@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-form ref="form" v-model="valid">
+    <v-form ref="form">
       <v-text-field v-model="formData.startDate" label="Fecha de Inicio"></v-text-field>
       <v-text-field v-model="formData.startTime" label="Hora de Inicio"></v-text-field>
       <v-text-field v-model="formData.oi" label="OI"></v-text-field>
@@ -18,7 +18,7 @@
       <v-text-field v-model="formData.sampleDetails_quantity" label="Cantidad"></v-text-field>
       <v-text-field v-model="formData.endDate" label="Fecha de Fin"></v-text-field>
       <v-text-field v-model="formData.endTime" label="Hora de Fin"></v-text-field>
-      <v-btn :disabled="!valid" @click="submitData">Subir Datos</v-btn>
+      <v-btn  @click="submitData">Subir Datos</v-btn>
       <v-btn @click="cancelForm">Cancelar/Volver</v-btn>
     </v-form>
   </v-container>
@@ -27,12 +27,11 @@
 <script setup>
 import { ref, reactive } from 'vue';
 import axios from 'axios';
-import { useForm } from '@vuelidate/core';
-import { required } from '@vuelidate/validators';
+
 
 const formData = reactive({
-startDate:new DATE(),
-startTime:new TIME(),
+startDate:"",
+startTime:"",
 oi:'',
 applicantsruc:0,
 producer:'',
@@ -45,19 +44,19 @@ instruments_thermometer: '',
 instruments_hyssop: '',
 sampleDetails_inertsurfaces: '',
 sampleDetails_quantity:0,
-end_date:new DATE(),
-end_time:new TIME(),
+end_date:"",
+end_time: "",
 });
 
 const submitData = async () => {
-  if (valid.value) {
+ 
     try {
       await axios.post('http://127.0.0.1/api/v1/service', formData);
       // Handle success
     } catch (error) {
       // Handle error
     }
-  }
+  
 };
 
 const resetData = () => {

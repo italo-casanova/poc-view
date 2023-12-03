@@ -17,7 +17,7 @@ const routes = [
     ],
   },
   {
-    path: 'InspeccionMuestreoAceite',
+    path: '/InspeccionMuestreoAceite',
     component: () => import('@/layouts/default/Default.vue'),
     children: [
       {

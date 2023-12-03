@@ -9,8 +9,10 @@
       <v-text-field v-model="formData.amount" label="Cantidad"></v-text-field>
       <v-text-field v-model="formData.declaredweight" label="Peso (declarado)"></v-text-field>
       <v-text-field v-model="formData.address" label="Direccion"></v-text-field>
+      Normas utilizadas
       <v-checkbox v-model="formData.usednorm_ntp" label="NTP ISO 2859-1"></v-checkbox>
       <v-checkbox v-model="formData.usednorm_other" label="Otros"></v-checkbox>
+      Instrumentos
       <v-checkbox v-model="formData.instruments_thermometer" label="Termometro Calibrado"></v-checkbox>
       <v-checkbox v-model="formData.instruments_hyssop" label="Hisopos"></v-checkbox>
       Detalles de Muestreo

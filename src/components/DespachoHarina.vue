@@ -25,7 +25,7 @@
         <v-checkbox v-model="dispatchData.gravel" label="Ripio"></v-checkbox>
         <v-checkbox v-model="dispatchData.stretcher" label="Parihuela"></v-checkbox>
         <v-text-field v-model="dispatchData.other2" label="Otro"></v-text-field>
-        Inspección de unidades" required
+        Inspección de unidades
         <v-text-field v-model="dispatchData.tractor_plate1" label="Placa tractor"></v-text-field>
         <v-text-field v-model="dispatchData.cart_plate1" label="Placa carreta"></v-text-field>
         <v-text-field v-model="dispatchData.precint_number" label="N° Precinto"></v-text-field>
@@ -40,8 +40,8 @@
         <v-text-field v-model="dispatchData.endDate" label="Fecha de fin"></v-text-field>
         <v-text-field v-model="dispatchData.endHour" label="Hora de fin"></v-text-field>
         <!-- ... other fields ... -->
-        <v-btn @click="submitData">Subir Datos</v-btn>
-        <v-btn @click="resetForm">Cancelar/Volver</v-btn>
+        <v-btn @click="submitData" color=succes>Subir Datos</v-btn>
+        <v-btn @click="resetForm" color=error>Cancelar/Volver</v-btn>
       </v-form>
     </v-container>
   </template>

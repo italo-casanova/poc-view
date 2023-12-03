@@ -14,24 +14,24 @@
         <v-text-field v-model="dispatchData.instructive" label="Instructivo"></v-text-field>
         <v-text-field v-model="dispatchData.inspectors" label="Inspectores"></v-text-field>
         <v-text-field v-model="dispatchData.thermometer_used" label="Termometro usado"></v-text-field>
-        <v-textarea v-model="dispatchData.details" label="Detalles" required></v-textarea>
-        <v-textarea v-model="dispatchData.inspection_r" label="Inspección realizada" required></v-textarea>
+        Detalles
+          Inspección realizada
         <v-checkbox v-model="dispatchData.merchandise" label="Mercadería"></v-checkbox>
         <v-checkbox v-model="dispatchData.packaging" label="Embalajes"></v-checkbox>
         <v-checkbox v-model="dispatchData.brands" label="Marcas"></v-checkbox>
         <v-text-field v-model="dispatchData.other1" label="Otro"></v-text-field>
-        <v-textarea v-model="dispatchData.over" label="Sobre" required></v-textarea>
+          Sobre
         <v-checkbox v-model="dispatchData.concrete" label="Cemento"></v-checkbox>
         <v-checkbox v-model="dispatchData.gravel" label="Ripio"></v-checkbox>
         <v-checkbox v-model="dispatchData.stretcher" label="Parihuela"></v-checkbox>
         <v-text-field v-model="dispatchData.other2" label="Otro"></v-text-field>
-        <v-textarea v-model="dispatchData.units_inspection" label="Inspección de unidades" required></v-textarea>
+        Inspección de unidades" required
         <v-text-field v-model="dispatchData.tractor_plate1" label="Placa tractor"></v-text-field>
         <v-text-field v-model="dispatchData.cart_plate1" label="Placa carreta"></v-text-field>
         <v-text-field v-model="dispatchData.precint_number" label="N° Precinto"></v-text-field>
         <v-text-field v-model="dispatchData.inspection1" label="Inspección 1 (conforme):"></v-text-field>
         <v-text-field v-model="dispatchData.inspection2" label="Inspección 2 (conforme):"></v-text-field>
-        <v-textarea v-model="dispatchData.charges_inspection" label="Inspección de cargas" required></v-textarea>
+        Inspección de cargas
         <v-text-field v-model="dispatchData.tractor_plate2" label="Placa tractor"></v-text-field>
         <v-text-field v-model="dispatchData.cart_plate2" label="Placa carreta"></v-text-field>
         <v-text-field v-model="dispatchData.weigth" label="Peso"></v-text-field>

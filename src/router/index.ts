@@ -44,6 +44,20 @@ const routes = [
       },
     ],
   },
+  {
+    path: '/InspeccionHarinaPescado',
+    component: () => import('@/layouts/default/Default.vue'),
+    children: [
+      {
+        path: '',
+        name: 'InspeccionHarinaPescado',
+        // route level code-splitting
+        // this generates a separate chunk (Home-[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import('@/views/InspeccionHarinaPescadoView.vue'),
+      },
+    ],
+  },
 ]
 
 const router = createRouter({

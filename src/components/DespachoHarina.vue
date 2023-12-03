@@ -40,7 +40,7 @@
         <v-text-field v-model="dispatchData.endDate" label="Fecha de fin"></v-text-field>
         <v-text-field v-model="dispatchData.endHour" label="Hora de fin"></v-text-field>
         <!-- ... other fields ... -->
-        <v-btn @click="submitData" color=succes>Subir Datos</v-btn>
+        <v-btn @click="submitData" color=success>Subir Datos</v-btn>
         <v-btn @click="resetForm" color=error>Cancelar/Volver</v-btn>
       </v-form>
     </v-container>

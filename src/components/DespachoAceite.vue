@@ -15,7 +15,7 @@
         <v-text-field v-model="dispatchData.inspector" label="Inspector" required></v-text-field>
         <v-text-field v-model="dispatchData.usedThermometer" label="Termometro Usado" required></v-text-field>
        
-        <!-- ... other fields similar to the ones for 'startDate' ... -->
+        
         Detalles
         Inspeccion Realizada:
         <v-checkbox v-model="dispatchData.inspectionPerformed" label="Mercaderia" required></v-checkbox>
@@ -32,7 +32,7 @@
         <v-text-field v-model="dispatchData.unitInspection.inspection1" label="Inspeccion 1 (conforme)" required></v-text-field>
         <v-text-field v-model="dispatchData.unitInspection.inspection2" label="Inspeccion 2 (conforme)" required></v-text-field>
         
-        <!-- ... additional unit inspection fields ... -->
+       
         Inspeccion de Cargas
         <v-text-field v-model="dispatchData.cargoInspection.tractorPlate" label="Placa tractor" required></v-text-field>
         <v-text-field v-model="dispatchData.cargoInspection.cartPlate" label="Placa carreta" required></v-text-field>
@@ -42,7 +42,7 @@
         <v-text-field v-model="dispatchData.endDate" label="Fecha de fin" required></v-text-field>
         <v-text-field v-model="dispatchData.endTime" label="Hora de fin" required></v-text-field>
   
-        <!-- ... additional cargo inspection fields ... -->
+        
         <v-btn @click="submitData" color="success">Subir Datos</v-btn>
         <v-btn @click="resetForm" color="error">Cancelar/Volver</v-btn>
       </v-form>
@@ -68,7 +68,7 @@
     inspector: '',
     usedThermometer: '',
     
-    // ... other form fields ...
+   
  
     inspectionPerformed:'',
   
@@ -78,14 +78,14 @@
       allegedNumber: '',
       inspection1:'',
       inspection2: '',
-      // ... additional unit inspection fields ...
+      
     },
     cargoInspection: {
       tractorPlate: '',
       cartPlate:'',
       weight: 0,
       observation: '',
-      // ... additional cargo inspection fields ...
+      
     },
     endDate: new Date(),
     endTime: '',
@@ -100,10 +100,10 @@
       try {
         const response=await axios.post('http://127.0.0.1/api/v1/service/your-endpoint', dispatchData);
         console.log(response.data);
-        // Handle success response
+        
       } catch (error) {
         console.error(error);
-        // Handle error
+        
       }
     
   };
@@ -149,5 +149,5 @@
   </script>
   
   <style>
-  /* Your CSS here */
+  
   </style>

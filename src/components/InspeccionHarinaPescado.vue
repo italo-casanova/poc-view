@@ -23,6 +23,7 @@
         <v-text-field v-model="formFields.end_date" label="Fecha de fin"></v-text-field>
         <v-text-field v-model="formFields.end_time" label="Hora de fin"></v-text-field>
         <v-btn @click="resetForm" color=success>Subir</v-btn>
+        &nbsp;
         <v-btn @click="resetForm" color=error>Cancelar/Volver</v-btn>
       </v-form>
     </v-container>

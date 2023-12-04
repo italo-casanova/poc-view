@@ -18,10 +18,10 @@
         
         Detalles
         Inspeccion Realizada:
-        <v-checkbox v-model="dispatchData.inspectionPerformed" label="Mercaderia"></v-checkbox>
-        <v-checkbox v-model="dispatchData.inspectionPerformed" label="Embalajes"></v-checkbox>
-        <v-checkbox v-model="dispatchData.inspectionPerformed" label="Marcas"></v-checkbox>
-        <v-checkbox v-model="dispatchData.inspectionPerformed" label="Otros"></v-checkbox>
+        <v-checkbox v-model="dispatchData.inspectionPerformedMerchandise" label="Mercaderia"></v-checkbox>
+        <v-checkbox v-model="dispatchData.inspectionPerformedPacking" label="Embalajes"></v-checkbox>
+        <v-checkbox v-model="dispatchData.inspectionPerformedBrand" label="Marcas"></v-checkbox>
+        <v-checkbox v-model="dispatchData.inspectionPerformedOther" label="Otros"></v-checkbox>
   
         
 
@@ -71,7 +71,11 @@
     
    
  
-    inspectionPerformed:'',
+    inspectionPerformedMerchandise:'',
+    inspectionPerformedPacking:'',
+    inspectionPerformedBrand:'',
+    inspectionPerformedOther:'',
+
   
     unitInspection: {
       tractorPlate: '',

@@ -59,7 +59,7 @@
 
   const dispatchData = reactive({
     startDate: new Date(),
-    startTime: '',
+    startTime: new Date(),
     inspeccionOrder: '',
     customerRUC: '',
     producer: '',
@@ -96,7 +96,7 @@
 
     },
     endDate: new Date(),
-    endTime: '',
+    endTime: new Date(),
   });
 
 
@@ -118,7 +118,7 @@
 
   const resetForm = () => {
    dispatchData.startDate=new Date();
-   dispatchData.startTime= '';
+   dispatchData.startTime= new Date();
    dispatchData.inspeccionOrder='';
    dispatchData.customerRUC='';
    dispatchData.producer='';
@@ -148,7 +148,7 @@
    dispatchData.cargoInspection.observation= '';
 
    dispatchData.endDate=new Date();
-   dispatchData.endTime='';
+
 
 
 

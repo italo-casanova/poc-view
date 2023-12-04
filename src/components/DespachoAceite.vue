@@ -106,7 +106,7 @@
 
   const submitData = async () => {
       try {
-        const response=await axios.post('http://127.0.0.1:8080/api/v1/clients/create', dispatchData);
+        const response=await axios.post('http://127.0.0.1:8080/api/v1/inspections/create', dispatchData);
         console.log(response.data);
 
       } catch (error) {

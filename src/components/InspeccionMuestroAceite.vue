@@ -33,15 +33,16 @@
         <v-select v-model="formData.storage" :items="embalajeOptions" label="Embalajes/Envases"></v-select>
         <v-text-field v-model="formData.startDate" label="Fecha de Fin"></v-text-field>
         <v-text-field v-model="formData.startTime" label="Hora de Fin"></v-text-field>
-        <v-btn  @click="submitData">Subir Datos</v-btn>
+        <v-btn  @click="submitData()">Subir Datos</v-btn>
         <v-btn @click="cancelForm">Cancelar/Volver</v-btn>
       </v-form>
     </v-container>
   </template>
-  
+
   <script setup>
   import { ref, reactive } from 'vue';
   import axios from 'axios';
+
   const formData = reactive({
     startDate: '',
     startTime: '',
@@ -54,9 +55,9 @@
     inspectionType: [],
     storage: '',
   });
-  
-  
-  
+
+
+
   const storageOptions = ['Seca', 'Húmeda', 'Bajo techo', 'A la intemperie'];
   const embalajeOptions = ["Flexitanks", "Ecobulks", "Cilindro", "Isotanks", "Otros"];
   const superficieOptions = ["Cemento", "Tierra", "Parihuela", "Otras"];
@@ -64,17 +65,17 @@
   const zonaOptions = ["Seca", "Limpia", "Húmeda", "Sucia"];
   const envaseOptions = ["PET 500 ml", "Vidrio 500 ml", "PET 250 ml", "Vidrio 250 ml", "Otros"];
   const normativaOptions = ["ISO 5555", "FOSFA", "INS-P-H&N.237", "INS-I-H&N.183", "Otras"];
-  
-  
+
+
   const submitData = async (values) => {
     try {
-      const response = await axios.post('http://127.0.0.1/api/v1/service', values);
+      const response = await axios.post('http://127.0.0.1:8080/api/v1/inspection/create', values);
       console.log(response.data);
     } catch (error) {
       console.error(error);
     }
   }
-  
+
   const cancelForm = () => {
     formData.startDate="";
     formData.startTime="";
@@ -86,7 +87,7 @@
     formData.inspectionType="";
     formData.equipmentType="";
   };
-  
-  
+
+
   </script>
-  
+

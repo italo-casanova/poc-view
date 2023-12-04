@@ -18,10 +18,10 @@
         
         Detalles
         Inspeccion Realizada:
-        <v-checkbox v-model="dispatchData.inspectionPerformed" label="Mercaderia" required></v-checkbox>
-        <v-checkbox v-model="dispatchData.inspectionPerformed" label="Embalajes" required></v-checkbox>
-        <v-checkbox v-model="dispatchData.inspectionPerformed" label="Marcas" required></v-checkbox>
-        <v-checkbox v-model="dispatchData.inspectionPerformed" label="Otros" required></v-checkbox>
+        <v-checkbox v-model="dispatchData.inspectionPerformed" label="Mercaderia"></v-checkbox>
+        <v-checkbox v-model="dispatchData.inspectionPerformed" label="Embalajes"></v-checkbox>
+        <v-checkbox v-model="dispatchData.inspectionPerformed" label="Marcas"></v-checkbox>
+        <v-checkbox v-model="dispatchData.inspectionPerformed" label="Otros"></v-checkbox>
   
         
 
@@ -44,6 +44,7 @@
   
         
         <v-btn @click="submitData" color="success">Subir Datos</v-btn>
+        &nbsp;
         <v-btn @click="resetForm" color="error">Cancelar/Volver</v-btn>
       </v-form>
     </v-container>

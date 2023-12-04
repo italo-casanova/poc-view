@@ -39,7 +39,6 @@
         <v-text-field v-model="dispatchData.observations" label="Observaciones"></v-text-field>
         <v-text-field v-model="dispatchData.endDate" label="Fecha de fin"></v-text-field>
         <v-text-field v-model="dispatchData.endHour" label="Hora de fin"></v-text-field>
-        <!-- ... other fields ... -->
         <v-btn @click="submitData" color=success>Subir Datos</v-btn>
         <v-btn @click="resetForm" color=error>Cancelar/Volver</v-btn>
       </v-form>
@@ -74,11 +73,9 @@
     other2:'',
     endDate: new Date(),
     endHour:'',
-    // ... other fields ...
     details:'',
     inspection_r:'',
     over:'',
-     // ... other fields ...
     tractor_plate1:'',
     cart_plate1:'',
     precint_number:'',
@@ -109,10 +106,8 @@
       try {
         const response=await axios.post('http://127.0.0.1/api/v1/service/your-endpoint', dispatchData);
         console.log(response.data);
-        // Handle success response
       } catch (error) {
         console.error(error);
-        // Handle error
       }
     
   };
@@ -141,7 +136,6 @@
     dispatchData.other2='',
     dispatchData.endDate=new Date(),
     dispatchData.endHour='',
-    // ... other fields ...
     dispatchData.details='',
     dispatchData.inspection_r='',
     dispatchData.over='',
@@ -157,10 +151,8 @@
     dispatchData.charges_inspection.weigth=0,
     dispatchData.charges_inspection.temperature_prom='',
     dispatchData.charges_inspection.observations
-    // Reset the form logic
   };
   </script>
   
   <style>
-  /* Your CSS here */
   </style>

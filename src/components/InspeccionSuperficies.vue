@@ -21,6 +21,7 @@
       <v-text-field v-model="formData.endDate" label="Fecha de Fin"></v-text-field>
       <v-text-field v-model="formData.endTime" label="Hora de Fin"></v-text-field>
       <v-btn  @click="submitData">Subir Datos</v-btn>
+      &nbsp;
       <v-btn @click="cancelForm">Cancelar/Volver</v-btn>
     </v-form>
   </v-container>

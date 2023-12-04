@@ -14,16 +14,16 @@
         <v-text-field v-model="dispatchData.instruction" label="Instructivo" required></v-text-field>
         <v-text-field v-model="dispatchData.inspector" label="Inspector" required></v-text-field>
         <v-text-field v-model="dispatchData.usedThermometer" label="Termometro Usado" required></v-text-field>
-       
-        
+
+
         Detalles
         Inspeccion Realizada:
         <v-checkbox v-model="dispatchData.inspectionPerformedMerchandise" label="Mercaderia"></v-checkbox>
         <v-checkbox v-model="dispatchData.inspectionPerformedPacking" label="Embalajes"></v-checkbox>
         <v-checkbox v-model="dispatchData.inspectionPerformedBrand" label="Marcas"></v-checkbox>
         <v-checkbox v-model="dispatchData.inspectionPerformedOther" label="Otros"></v-checkbox>
-  
-        
+
+
 
         Inspeccion de Unidades
         <v-text-field v-model="dispatchData.unitInspection.tractorPlate" label="Placa tractor" required></v-text-field>
@@ -31,29 +31,32 @@
         <v-text-field v-model="dispatchData.unitInspection.allegedNumber" label="Nº presinto" required></v-text-field>
         <v-text-field v-model="dispatchData.unitInspection.inspection1" label="Inspeccion 1 (conforme)" required></v-text-field>
         <v-text-field v-model="dispatchData.unitInspection.inspection2" label="Inspeccion 2 (conforme)" required></v-text-field>
-        
-       
+
+
         Inspeccion de Cargas
         <v-text-field v-model="dispatchData.cargoInspection.tractorPlate" label="Placa tractor" required></v-text-field>
         <v-text-field v-model="dispatchData.cargoInspection.cartPlate" label="Placa carreta" required></v-text-field>
         <v-text-field v-model="dispatchData.cargoInspection.weight" label="Peso" required></v-text-field>
         <v-text-field v-model="dispatchData.cargoInspection.observation" label="Observaciones" required></v-text-field>
-  
+
         <v-text-field v-model="dispatchData.endDate" label="Fecha de fin" required></v-text-field>
         <v-text-field v-model="dispatchData.endTime" label="Hora de fin" required></v-text-field>
-  
-        
+
+
         <v-btn @click="submitData" color="success">Subir Datos</v-btn>
         &nbsp;
         <v-btn @click="resetForm" color="error">Cancelar/Volver</v-btn>
       </v-form>
     </v-container>
   </template>
-  
+
   <script setup>
   import { ref, reactive } from 'vue';
   import axios from 'axios';
-  
+
+  // axios.defaults.withCredentials = true;
+
+
   const dispatchData = reactive({
     startDate: new Date(),
     startTime: '',
@@ -68,51 +71,51 @@
     instruction: '',
     inspector: '',
     usedThermometer: '',
-    
-   
- 
+
+
+
     inspectionPerformedMerchandise:'',
     inspectionPerformedPacking:'',
     inspectionPerformedBrand:'',
     inspectionPerformedOther:'',
 
-  
+
     unitInspection: {
       tractorPlate: '',
       cartPlate:'',
       allegedNumber: '',
       inspection1:'',
       inspection2: '',
-      
+
     },
     cargoInspection: {
       tractorPlate: '',
       cartPlate:'',
       weight: 0,
       observation: '',
-      
+
     },
     endDate: new Date(),
     endTime: '',
   });
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
   const submitData = async () => {
       try {
-        const response=await axios.post('http://127.0.0.1/api/v1/service/your-endpoint', dispatchData);
+        const response=await axios.post('http://127.0.0.1:8080/api/v1/clients/create', dispatchData);
         console.log(response.data);
-        
+
       } catch (error) {
         console.error(error);
-        
+
       }
-    
+
   };
-  
+
   const resetForm = () => {
    dispatchData.startDate=new Date();
    dispatchData.startTime= '';
@@ -127,32 +130,32 @@
    dispatchData.instruction= '';
    dispatchData.inspector= '';
    dispatchData.usedThermometer= '';
-  
+
 
    dispatchData.inspectionPerformed= '';
-  
-  
+
+
    dispatchData.unitInspection.tractorPlate= '';
    dispatchData.unitInspection.cartPlate= '';
    dispatchData.unitInspection.allegedNumber= '';
    dispatchData.unitInspection.inspection1= '';
    dispatchData.unitInspection.inspection2= '';
-  
- 
+
+
    dispatchData.cargoInspection.tractorPlate= '';
    dispatchData.cargoInspection.cartPlate= '';
    dispatchData.cargoInspection.weight=0 ;
    dispatchData.cargoInspection.observation= '';
-  
+
    dispatchData.endDate=new Date();
    dispatchData.endTime='';
-  
-  
-  
-  
+
+
+
+
   };
   </script>
-  
+
   <style>
-  
+
   </style>

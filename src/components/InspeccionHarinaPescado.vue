@@ -35,7 +35,7 @@
   
   const formFields = reactive({
     startDate: new Date(),
-    startTime: '',
+    startTime: new Date(),
     requester: '',
     applicants_code:'',
     address:'',
@@ -54,7 +54,7 @@
     s_n_f_physic:0,
     s_n_f_microbiologic:'',
     end_date:new Date(),
-    end_time:'',
+    end_time:new Date(),
   });
   
   
@@ -71,7 +71,7 @@
   
   const resetForm = () => {
     formFields.startDate = new Date();
-    formFields.startTime = '';
+    formFields.startTime = new Date();
     formFields.requester= '';
     formFields.applicants_code='';
     formFields.address='';
@@ -90,7 +90,7 @@
     formFields.s_n_f_physic=0;
     formFields.s_n_f_microbiologic='';
     formFields.end_date=new Date();
-    formFields.end_time='';
+    formFields.end_time=new Date();
     };
   
   </script>

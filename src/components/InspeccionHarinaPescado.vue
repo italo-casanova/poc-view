@@ -22,8 +22,8 @@
         <v-text-field v-model="formFields.s_n_f_microbiologic" label="N° muestras para microbiológica"></v-text-field>
         <v-text-field v-model="formFields.end_date" label="Fecha de fin"></v-text-field>
         <v-text-field v-model="formFields.end_time" label="Hora de fin"></v-text-field>
-        <v-btn @click="resetForm" color=success>Cancelar/Volver</v-btn>
-        <v-btn @click="resetForm" color=error>Subir</v-btn>
+        <v-btn @click="resetForm" color=success>Subir</v-btn>
+        <v-btn @click="resetForm" color=error>Cancelar/Volver</v-btn>
       </v-form>
     </v-container>
   </template>

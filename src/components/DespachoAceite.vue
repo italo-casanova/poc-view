@@ -24,20 +24,33 @@
         <v-checkbox v-model="dispatchData.inspectionPerformedOther" label="Otros"></v-checkbox>
 
 
-
+        
         Inspeccion de Unidades
-        <v-text-field v-model="dispatchData.unitInspection.tractorPlate" label="Placa tractor" required></v-text-field>
-        <v-text-field v-model="dispatchData.unitInspection.cartPlate" label="Placa carreta" required></v-text-field>
-        <v-text-field v-model="dispatchData.unitInspection.allegedNumber" label="Nº presinto" required></v-text-field>
-        <v-text-field v-model="dispatchData.unitInspection.inspection1" label="Inspeccion 1 (conforme)" required></v-text-field>
-        <v-text-field v-model="dispatchData.unitInspection.inspection2" label="Inspeccion 2 (conforme)" required></v-text-field>
-
+        <div v-for="(unit, index) in dispatchData.unitInspections" :key="index">
+        <v-text-field v-model="unit.tractorPlate" label="Placa tractor" required></v-text-field>
+        <v-text-field v-model="unit.cartPlate" label="Placa carreta" required></v-text-field>
+        <v-text-field v-model="unit.allegedNumber" label="Nº presinto" required></v-text-field>
+        <v-text-field v-model="unit.inspection1" label="Inspeccion 1 (conforme)" required></v-text-field>
+        <v-text-field v-model="unit.inspection2" label="Inspeccion 2 (conforme)" required></v-text-field>
+        </div>
+        <!-- Botón para añadir otra unidad -->
+        <v-btn fixed bottom right fab @click="addUnit">
+        <v-icon>mdi-plus</v-icon>
+        </v-btn><br><br>
 
         Inspeccion de Cargas
-        <v-text-field v-model="dispatchData.cargoInspection.tractorPlate" label="Placa tractor" required></v-text-field>
-        <v-text-field v-model="dispatchData.cargoInspection.cartPlate" label="Placa carreta" required></v-text-field>
-        <v-text-field v-model="dispatchData.cargoInspection.weight" label="Peso" required></v-text-field>
-        <v-text-field v-model="dispatchData.cargoInspection.observation" label="Observaciones" required></v-text-field>
+        <div v-for="(cargo, index) in dispatchData.cargoInspections" :key="index">
+          <v-text-field v-model="cargo.tractorPlate" label="Placa tractor" required></v-text-field>
+          <v-text-field v-model="cargo.cartPlate" label="Placa carreta" required></v-text-field>
+          <v-text-field v-model="cargo.weight" label="Peso" required></v-text-field>
+          <v-text-field v-model="cargo.observation" label="Observaciones" required></v-text-field>
+        </div> 
+
+        
+        <!-- Botón para añadir otra unidad -->
+        <v-btn fixed bottom right fab @click="addCargo">
+        <v-icon>mdi-plus</v-icon>
+        </v-btn><br><br>
 
         <v-text-field v-model="dispatchData.endDate" label="Fecha de fin" required></v-text-field>
         <v-text-field v-model="dispatchData.endTime" label="Hora de fin" required></v-text-field>
@@ -80,28 +93,33 @@
     inspectionPerformedOther:'',
 
 
-    unitInspection: {
-      tractorPlate: '',
-      cartPlate:'',
-      allegedNumber: '',
-      inspection1:'',
-      inspection2: '',
+    unitInspections: [],
 
-    },
-    cargoInspection: {
-      tractorPlate: '',
-      cartPlate:'',
-      weight: 0,
-      observation: '',
+    cargoInspections:[],
 
-    },
     endDate: new Date(),
     endTime: new Date(),
   });
 
 
+  const addUnit = () => {
+    dispatchData.unitInspections.push({
+      tractorPlate: '',
+      cartPlate: '',
+      allegedNumber: '',
+      inspection1: '',
+      inspection2: '',
+    });
+  };
 
-
+  const addCargo = () => {
+    dispatchData.cargoInspections.push({
+      tractorPlate: '',
+      cartPlate: '',
+      weight: 0,
+      observation:'',
+    });
+  };
 
 
   const submitData = async () => {
@@ -135,17 +153,21 @@
    dispatchData.inspectionPerformed= '';
 
 
-   dispatchData.unitInspection.tractorPlate= '';
-   dispatchData.unitInspection.cartPlate= '';
-   dispatchData.unitInspection.allegedNumber= '';
-   dispatchData.unitInspection.inspection1= '';
-   dispatchData.unitInspection.inspection2= '';
+   dispatchData.unitInspections = [{
+    tractorPlate: '',
+    cartPlate: '',
+    allegedNumber: '',
+    inspection1: '',
+    inspection2: '',
+  }];
 
+  dispatchData.cargoInspections = [{
+    tractorPlate: '',
+    cartPlate: '',
+    weight: 0,
+    observation:'',
+  }];
 
-   dispatchData.cargoInspection.tractorPlate= '';
-   dispatchData.cargoInspection.cartPlate= '';
-   dispatchData.cargoInspection.weight=0 ;
-   dispatchData.cargoInspection.observation= '';
 
    dispatchData.endDate=new Date();
 

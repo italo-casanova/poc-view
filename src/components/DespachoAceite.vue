@@ -15,7 +15,16 @@
         <v-text-field class="v-container" v-model="dispatchData.ship" label="Nave" required></v-text-field>
         <v-text-field class="v-container" v-model="dispatchData.merchandiseWeight" label="TM" required></v-text-field>
         <v-text-field class="v-container" v-model="dispatchData.instruction" label="Instructivo" required></v-text-field>
-        <v-text-field class="v-container" v-model="dispatchData.inspector" label="Inspector" required></v-text-field>
+        <div class="v-text-field">
+          Inspectores:
+        </div>
+        <div v-for="(inspector, index) in dispatchData.inspector" :key="index">
+        <v-text-field class="v-container" v-model="dispatchData.inspector[index]" label="Inspector" required></v-text-field>
+        </div>
+        <v-btn class="v-btn" fab color="orange darken-2" @click="addInspector">
+        <v-icon>mdi-plus</v-icon>
+        </v-btn><br><br>
+
         <v-text-field class="v-container" v-model="dispatchData.usedThermometer" label="Termometro Usado" required></v-text-field>
 
         <div class="inspection-section">
@@ -93,7 +102,7 @@
     ship: '',
     merchandiseWeight: 0,
     instruction: '',
-    inspector: '',
+    inspector: [],
     usedThermometer: '',
 
 
@@ -112,7 +121,9 @@
     endTime: new Date(),
   });
 
-
+  const addInspector = () => {
+  dispatchData.inspector.push(''); // o push({ name: '' }) si es un objeto
+};
   const addUnit = () => {
     dispatchData.unitInspections.push({
       tractorPlate: '',
@@ -157,7 +168,9 @@
    dispatchData.ship= '';
    dispatchData.merchandiseWeight= 0;
    dispatchData.instruction= '';
-   dispatchData.inspector= '';
+   dispatchData.inspector = [{
+    inspector: '',
+  }];
    dispatchData.usedThermometer= '';
 
 
@@ -181,6 +194,7 @@
 
 
    dispatchData.endDate=new Date();
+   dispatchData.endTime=new Date();
 
   };
   import { useRouter } from 'vue-router'

@@ -40,7 +40,7 @@
         <v-text-field v-model="dispatchData.endDate" label="Fecha de fin"></v-text-field>
         <v-text-field v-model="dispatchData.endHour" label="Hora de fin"></v-text-field>
         <v-btn @click="submitData" color=success>Subir Datos</v-btn>
-        <v-btn @click="resetForm" color=error>Cancelar/Volver</v-btn>
+        <v-btn @click="resetForm, navegarS('Servicios')" color="error">Cancelar/Volver</v-btn>
       </v-form>
     </v-container>
   </template>
@@ -151,6 +151,13 @@
     dispatchData.charges_inspection.weigth=0,
     dispatchData.charges_inspection.temperature_prom='',
     dispatchData.charges_inspection.observations
+  };
+  import { useRouter } from 'vue-router'
+
+  const router = useRouter();
+  // Función para navegar a una vista determinada por su nombre de ruta
+  const navegarS = (Servicios) => {
+  router.push({ name: Servicios });
   };
   </script>
   

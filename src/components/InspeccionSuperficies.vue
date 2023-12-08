@@ -22,7 +22,7 @@
       <v-text-field v-model="formData.endTime" label="Hora de Fin"></v-text-field>
       <v-btn  @click="submitData">Subir Datos</v-btn>
       &nbsp;
-      <v-btn @click="cancelForm">Cancelar/Volver</v-btn>
+      <v-btn @click="cancelForm, navegarS('Servicios')" color="error">Cancelar/Volver</v-btn>
     </v-form>
   </v-container>
 </template>
@@ -83,5 +83,13 @@ formData.endTime='';
 
 const cancelForm = () => {
   // Reset form or handle the cancel action
+};
+
+import { useRouter } from 'vue-router'
+
+const router = useRouter();
+// Función para navegar a una vista determinada por su nombre de ruta
+const navegarS = (Servicios) => {
+router.push({ name: Servicios });
 };
 </script>

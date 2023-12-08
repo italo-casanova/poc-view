@@ -34,7 +34,7 @@
         <v-text-field v-model="formData.startDate" label="Fecha de Fin"></v-text-field>
         <v-text-field v-model="formData.startTime" label="Hora de Fin"></v-text-field>
         <v-btn  @click="submitData()">Subir Datos</v-btn>
-        <v-btn @click="cancelForm">Cancelar/Volver</v-btn>
+        <v-btn @click="cancelForm, navegarS('Servicios')" color="error">Cancelar/Volver</v-btn>
       </v-form>
     </v-container>
   </template>
@@ -88,6 +88,13 @@
     formData.equipmentType="";
   };
 
+  import { useRouter } from 'vue-router'
+
+  const router = useRouter();
+  // Función para navegar a una vista determinada por su nombre de ruta
+  const navegarS = (Servicios) => {
+  router.push({ name: Servicios });
+  };
 
   </script>
 

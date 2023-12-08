@@ -68,7 +68,8 @@
 
         <v-btn @click="submitData" color="success">Subir Datos</v-btn>
         &nbsp;
-        <v-btn @click="resetForm" color="error">Cancelar/Volver</v-btn>
+        <v-btn @click="resetForm, navegarS('Servicios')" color="error">Cancelar/Volver</v-btn>
+
       </v-form>
     </v-container>
   </template>
@@ -182,6 +183,13 @@
    dispatchData.endDate=new Date();
 
   };
+  import { useRouter } from 'vue-router'
+
+    const router = useRouter();
+    // Función para navegar a una vista determinada por su nombre de ruta
+    const navegarS = (Servicios) => {
+    router.push({ name: Servicios });
+    };
   </script>
 
 <style scoped>

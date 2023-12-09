@@ -180,11 +180,7 @@
   color: #333;
 }
 
-/* Estilos para los botones */
-.v-btn {
-  background-color: #d35400; /* Un tono naranja, por ejemplo */
-  color: white;
-}
+
 
 /* Estilos adicionales para la sección de inspección */
 .inspection-section {

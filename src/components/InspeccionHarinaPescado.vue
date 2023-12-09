@@ -1,6 +1,9 @@
 <template>
     <v-container>
       <v-form ref="form">
+        <div class="titulo-despacho">
+          INSPECCIÓN Y MUESTREO DE HARINA DE PESCADO
+        </div>
         <v-text-field v-model="formFields.startDate" label="Fecha de Inicio"></v-text-field>
         <v-text-field v-model="formFields.startTime" label="Hora de Inicio"></v-text-field>
         <v-text-field v-model="formFields.requester" label="Solicitante"></v-text-field>
@@ -102,4 +105,11 @@
   </script>
   
   <style scoped>
+   .titulo-despacho {
+    font-size: 24px; /* Cambia el tamaño de fuente como necesites */
+    font-weight: bold;
+    color: #d35400; /* Cambia el color de fuente como necesites */
+    margin-bottom: 20px; /* Espacio debajo del título */
+    text-align: center; /* Centrar el título */
+  }
   </style>

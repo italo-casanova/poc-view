@@ -1,6 +1,9 @@
 <template>
     <v-container>
       <v-form ref="form">
+        <div class="titulo-despacho">
+          INSPECCIÓN Y MUESTREO DE ACEITE DE PESCADO
+        </div>
         <v-text-field v-model="formData.startDate" label="Fecha de Inicio"></v-text-field>
         <v-text-field v-model="formData.startTime" label="Hora de Inicio"></v-text-field>
         <v-text-field v-model="formData.applicants_code" label="RUC Solicitante" value="visualInspection"></v-text-field>
@@ -98,3 +101,12 @@
 
   </script>
 
+  <style scoped>
+   .titulo-despacho {
+    font-size: 24px; /* Cambia el tamaño de fuente como necesites */
+    font-weight: bold;
+    color: #d35400; /* Cambia el color de fuente como necesites */
+    margin-bottom: 20px; /* Espacio debajo del título */
+    text-align: center; /* Centrar el título */
+  }
+  </style>

@@ -57,8 +57,8 @@ import axios from 'axios';
 
 
 const formData = reactive({
-startDate:"",
-startTime:"",
+startDate: new Date,
+startTime: new Date,
 oi:'',
 applicantsruc:0,
 producer:'',
@@ -70,8 +70,8 @@ usednorm_other: '',
 instruments_thermometer: '',
 instruments_hyssop: '',
 superfInspections: [],
-end_date:"",
-end_time: "",
+end_date: new Date,
+end_time:  new Date,
 });
 
 const submitData = async () => {
@@ -92,8 +92,8 @@ const addSuperf = () => {
   };
 
 const resetData = () => {
-formData.startDate = '';
-formData.startTime = '';
+formData.startDate =  new Date;
+formData.startTime =  new Date;
 formData.oi= '';
 formData.aplicantsruc=0;
 formData.producer='';
@@ -104,8 +104,8 @@ formData.usednorm_ntp='';
 formData.usednorm_other='';
 formData.instruments_thermometer='';
 formData.instruments_hyssop='';
-formData.endDate='';
-formData.endTime='';
+formData.endDate= new Date;
+formData.endTime= new Date;
 formData.superfInspections = [{
   sampleDetails_inertsurfaces: '',
   sampleDetails_quantity:'',

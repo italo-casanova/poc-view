@@ -70,8 +70,8 @@ usednorm_other: '',
 instruments_thermometer: '',
 instruments_hyssop: '',
 superfInspections: [],
-end_date: new Date,
-end_time:  new Date,
+endDate: new Date,
+endTime:  new Date,
 });
 
 const submitData = async () => {
